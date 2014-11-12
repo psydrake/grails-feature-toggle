@@ -32,7 +32,7 @@ class FeatureToggleFilters implements ApplicationContextAware {
 					}
 				}
 				
-				def action = controllers[controllerName?.toLowerCase() + '.' + curAction?.toLowerCase()] 
+				def action = controllers ? controllers[controllerName?.toLowerCase() + '.' + curAction?.toLowerCase()] : null
 				
 				if(action != null && !featureToggleService.isFeatureEnabled(action.name)) {
 					if(action.resultRedirect.size() > 0) {
